@@ -5,6 +5,7 @@ import 'package:todo_bloc/cubit/filtered_todos/filtered_todos_cubit.dart';
 import 'package:todo_bloc/cubit/todo_filter/todo_filter_cubit.dart';
 import 'package:todo_bloc/cubit/todo_list/todo_list_cubit.dart';
 import 'package:todo_bloc/cubit/todo_search/todo_search_cubit.dart';
+import 'package:todo_bloc/pages/todos_page.dart';
 
 void main() {
   runApp(
@@ -24,6 +25,8 @@ class MainApp extends StatelessWidget {
         BlocProvider<TodoListCubit>(create: (context) => TodoListCubit()),
         BlocProvider<ActiveTodoCountCubit>(
             create: (context) => ActiveTodoCountCubit(
+                initialActiveTodoCount:
+                    context.read<TodoListCubit>().state.todos.length,
                 todoListCubit: BlocProvider.of<TodoListCubit>(context))),
         BlocProvider<FilteredTodosCubit>(
             create: (context) => FilteredTodosCubit(
@@ -32,15 +35,10 @@ class MainApp extends StatelessWidget {
                 todoSearchCubit: BlocProvider.of<TodoSearchCubit>(context))),
       ],
       child: MaterialApp(
-        title: 'TODO',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(primarySwatch: Colors.orange),
-        home: const Scaffold(
-          body: Center(
-            child: Text('Hello World!'),
-          ),
-        ),
-      ),
+          title: 'TODO',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(primarySwatch: Colors.orange),
+          home: const TodosPage()),
     );
   }
 }
