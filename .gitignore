@@ -8,6 +8,10 @@
 .buildlog/
 .history
 .svn/
+*.c++
+*.CMake
+*.HTML
+*.Swift
 migrate_working_dir/
 
 # IntelliJ related
