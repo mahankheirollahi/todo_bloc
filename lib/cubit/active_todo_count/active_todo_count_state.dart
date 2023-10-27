@@ -1,21 +1,21 @@
 import 'package:equatable/equatable.dart';
 
 class ActiveTodoCountState extends Equatable {
-  final int activeTodoAcount;
-  const ActiveTodoCountState({required this.activeTodoAcount});
+  final int activeTodoCount;
+  const ActiveTodoCountState({required this.activeTodoCount});
 
   ActiveTodoCountState copyWith({
     int? activeTodoAcount,
   }) {
     return ActiveTodoCountState(
-      activeTodoAcount: activeTodoAcount ?? this.activeTodoAcount,
+      activeTodoCount: activeTodoAcount ?? this.activeTodoCount,
     );
   }
 
   @override
-  List<Object> get props => [activeTodoAcount];
+  List<Object> get props => [activeTodoCount];
 
   factory ActiveTodoCountState.initial() {
-    return const ActiveTodoCountState(activeTodoAcount: 0);
+    return const ActiveTodoCountState(activeTodoCount: 0);
   }
 }
