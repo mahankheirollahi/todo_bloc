@@ -8,10 +8,11 @@
 .buildlog/
 .history
 .svn/
-*.c++
-*.CMake
-*.HTML
-*.Swift
+*.cc -linguist-detectable
+*.cpp -linguist-detectable
+
+# Detect
+*.dart linguist-detectable
 migrate_working_dir/
 
 # IntelliJ related
